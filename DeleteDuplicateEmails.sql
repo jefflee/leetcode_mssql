@@ -1,5 +1,18 @@
 -- https://leetcode.com/problems/delete-duplicate-emails/
 
+-- solution 1 - MySQL
+DELETE FROM Person 
+WHERE Id in (
+    select * 
+    from (
+        select p2.Id
+        from Person as p1 
+        join person as p2 
+        where p1.email = p2.email and P2.Id > P1.Id
+    ) as sub
+ );
+
+ -- dolution 2 - MSSQL
 with cte as (
     select rank() OVER (PARTITION by Email ORDER BY Id ) AS RankCol
         , Id
