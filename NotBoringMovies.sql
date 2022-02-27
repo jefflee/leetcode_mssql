@@ -1,4 +1,4 @@
-https://leetcode.com/problems/not-boring-movies/
+-- https://leetcode.com/problems/not-boring-movies/
 
 SELECT id, movie, description, rating
 FROM Cinema
